@@ -1,0 +1,8 @@
+VeiculoBase Class
+A VeiculoBase é a classe base para todos os tipos de veículos no sistema. Aqui estão suas principais funcionalidades: 
+
+
+* Inicialização (__init__): Configura as propriedades iniciais de um veículo, como modelo, cor e velocidade atual.
+* Getters e Setters: Métodos para acessar e modificar os atributos privados do veículo (modelo, cor e velocidade atual).
+* Aceleração e Desaceleração: Métodos para aumentar ou diminuir a velocidade do veículo.
+* Serialização (to_dict): Converte os atributos do veículo em um dicionário para facilitar o armazenamento e a manipulação de dados.

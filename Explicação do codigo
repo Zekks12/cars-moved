@@ -14,8 +14,8 @@ A CarsMovedFrota representa a frota completa de veículos e oferece funcionalida
 * Adicionar Veículo (adicionar_veiculo): Adiciona um veículo à frota e salva as alterações no arquivo JSON.
 * Mostrar Informações (mostrar_informacoes): Exibe detalhes sobre cada veículo na frota, incluindo modelo, cor e velocidade atual.
 * Gerar Relatório (gerar_relatorio): Gera um relatório em formato de lista de dicionários com informações sobre todos os veículos na frota.
-& Salvar Frota (_salvar_frota): Salva os dados da frota em um arquivo JSON.
-& Carregar Frota (carregar_frota): Carrega a frota a partir de um arquivo JSON existente, se disponível.
+* Salvar Frota (_salvar_frota): Salva os dados da frota em um arquivo JSON.
+* Carregar Frota (carregar_frota): Carrega a frota a partir de um arquivo JSON existente, se disponível.
 
 Exemplo de Uso
 No exemplo de uso, criamos uma instância de CarsMovedFrota, carregamos a frota existente (ou iniciamos uma nova) e adicionamos alguns veículos. Em seguida, aceleramos e desaceleramos esses veículos e exibimos informações detalhadas sobre a frota.

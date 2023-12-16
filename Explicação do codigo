@@ -1,24 +1,50 @@
-VeiculoBase Class
-A VeiculoBase é a classe base para todos os tipos de veículos no sistema. Aqui estão suas principais funcionalidades: 
+Vamos analisar como os conceitos de herança e polimorfismo estão sendo aplicados no projeto CarsMoved.
 
+Herança
+A herança é um conceito fundamental na programação orientada a objetos, permitindo que uma classe herde atributos e métodos de outra classe. No projeto CarsMoved, a classe VeiculoBase é a classe base, da qual as classes específicas Carro e Moto herdam.
 
-* Inicialização (__init__): Configura as propriedades iniciais de um veículo, como modelo, cor e velocidade atual.
-* Getters e Setters: Métodos para acessar e modificar os atributos privados do veículo (modelo, cor e velocidade atual).
-* Aceleração e Desaceleração: Métodos para aumentar ou diminuir a velocidade do veículo.
-* Serialização (to_dict): Converte os atributos do veículo em um dicionário para facilitar o armazenamento e a manipulação de dados.
+python
 
-CarsMovedFrota Class
-A CarsMovedFrota representa a frota completa de veículos e oferece funcionalidades para gerenciamento:
+class Carro(VeiculoBase):
+    # ...
 
-* Inicialização (__init__): Configura a frota, permitindo a especificação de um nome de arquivo para persistência.
-* Adicionar Veículo (adicionar_veiculo): Adiciona um veículo à frota e salva as alterações no arquivo JSON.
-* Mostrar Informações (mostrar_informacoes): Exibe detalhes sobre cada veículo na frota, incluindo modelo, cor e velocidade atual.
-* Gerar Relatório (gerar_relatorio): Gera um relatório em formato de lista de dicionários com informações sobre todos os veículos na frota.
-* Salvar Frota (_salvar_frota): Salva os dados da frota em um arquivo JSON.
-* Carregar Frota (carregar_frota): Carrega a frota a partir de um arquivo JSON existente, se disponível.
+class Moto(VeiculoBase):
+    # ...
+Ambas Carro e Moto herdam características e comportamentos básicos de VeiculoBase, como modelo, cor e métodos como acelerar e desacelerar. A herança facilita a reutilização de código e cria uma hierarquia lógica entre as classes.
 
-Exemplo de Uso
-No exemplo de uso, criamos uma instância de CarsMovedFrota, carregamos a frota existente (ou iniciamos uma nova) e adicionamos alguns veículos. Em seguida, aceleramos e desaceleramos esses veículos e exibimos informações detalhadas sobre a frota.
+Polimorfismo
+O polimorfismo permite que objetos de diferentes classes sejam tratados de maneira uniforme, permitindo que métodos de uma classe base sejam substituídos em classes derivadas. No projeto, temos um exemplo disso nos métodos acelerar e desacelerar:
 
-Conclusão
-O código fornece uma estrutura básica para o gerenciamento de veículos, permitindo a adição dinâmica de veículos à frota, manipulação de velocidade e a persistência de dados em um arquivo JSON. Essa estrutura pode ser expandida e aprimorada para atender às necessidades específicas do projeto CarsMoved.
+python
+
+class Carro(VeiculoBase):
+    def acelerar(self, incremento):
+        super().set_velocidade_atual(super().get_velocidade_atual() + 2 * incremento)
+
+    def desacelerar(self, decremento):
+        super().set_velocidade_atual(super().get_velocidade_atual() - decremento)
+
+class Moto(VeiculoBase):
+    def acelerar(self, incremento):
+        super().set_velocidade_atual(super().get_velocidade_atual() + incremento)
+
+    def desacelerar(self, decremento):
+        super().set_velocidade_atual(super().get_velocidade_atual() - 2 * decremento)
+Cada classe derivada (Carro e Moto) implementa seus próprios métodos acelerar e desacelerar, adaptando o comportamento conforme necessário. Isso é uma forma de polimorfismo, onde métodos com o mesmo nome na classe base são implementados de maneira diferente nas classes derivadas.
+
+Encapsulamento
+O encapsulamento é o princípio de esconder detalhes internos de uma classe e fornecer uma interface pública para interagir com ela. As propriedades na classe VeiculoBase são encapsuladas usando métodos getters e setters para garantir o acesso controlado aos atributos privados.
+
+python
+
+class VeiculoBase:
+    # ...
+    
+    def get_velocidade_atual(self):
+        return self.__velocidade_atual
+
+    def set_velocidade_atual(self, velocidade_atual):
+        self.__velocidade_atual = velocidade_atual
+Os métodos getters e setters fornecem uma camada de abstração, permitindo que o estado interno da classe seja modificado de maneira controlada.
+
+Esses conceitos trabalham em conjunto para criar uma estrutura flexível, modular e fácil de entender no projeto CarsMoved.

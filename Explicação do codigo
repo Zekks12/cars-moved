@@ -1,7 +1,7 @@
-Vamos analisar como os conceitos de herança e polimorfismo estão sendo aplicados no projeto CarsMoved.
+Analise herança e polimorfismo aplicados no projeto CarsMoved.
 
 Herança
-A herança é um conceito fundamental na programação orientada a objetos, permitindo que uma classe herde atributos e métodos de outra classe. No projeto CarsMoved, a classe VeiculoBase é a classe base, da qual as classes específicas Carro e Moto herdam.
+No projeto CarsMoved, a classe VeiculoBase é a classe base, da qual as classes específicas Carro e Moto herdam.
 
 python
 
@@ -10,10 +10,10 @@ class Carro(VeiculoBase):
 
 class Moto(VeiculoBase):
     # ...
-Ambas Carro e Moto herdam características e comportamentos básicos de VeiculoBase, como modelo, cor e métodos como acelerar e desacelerar. A herança facilita a reutilização de código e cria uma hierarquia lógica entre as classes.
+Ambas Carro e Moto herdam características e comportamentos básicos de VeiculoBase, como modelo, cor e métodos como acelerar e desacelerar.
 
 Polimorfismo
-O polimorfismo permite que objetos de diferentes classes sejam tratados de maneira uniforme, permitindo que métodos de uma classe base sejam substituídos em classes derivadas. No projeto, temos um exemplo disso nos métodos acelerar e desacelerar:
+  No projeto, temos um exemplo nos métodos acelerar e desacelerar:
 
 python
 
@@ -30,10 +30,10 @@ class Moto(VeiculoBase):
 
     def desacelerar(self, decremento):
         super().set_velocidade_atual(super().get_velocidade_atual() - 2 * decremento)
-Cada classe derivada (Carro e Moto) implementa seus próprios métodos acelerar e desacelerar, adaptando o comportamento conforme necessário. Isso é uma forma de polimorfismo, onde métodos com o mesmo nome na classe base são implementados de maneira diferente nas classes derivadas.
+Cada classe derivada (Carro e Moto) implementa seus próprios métodos acelerar e desacelerar, adaptando o comportamento conforme necessário. 
 
 Encapsulamento
-O encapsulamento é o princípio de esconder detalhes internos de uma classe e fornecer uma interface pública para interagir com ela. As propriedades na classe VeiculoBase são encapsuladas usando métodos getters e setters para garantir o acesso controlado aos atributos privados.
+As propriedades na classe VeiculoBase são encapsuladas usando métodos getters e setters para garantir o acesso controlado aos atributos privados.
 
 python
 
@@ -45,6 +45,7 @@ class VeiculoBase:
 
     def set_velocidade_atual(self, velocidade_atual):
         self.__velocidade_atual = velocidade_atual
+
 Os métodos getters e setters fornecem uma camada de abstração, permitindo que o estado interno da classe seja modificado de maneira controlada.
 
 Esses conceitos trabalham em conjunto para criar uma estrutura flexível, modular e fácil de entender no projeto CarsMoved.
